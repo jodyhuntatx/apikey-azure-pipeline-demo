@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 #
 # Authenticates as host identity with API key and gets value of a specified variable
 #
@@ -6,7 +6,7 @@
 # URL, ACCOUNT, CERT_FILE, LOGIN and API_KEY are taken from build vars in library
 
 ################  MAIN   ################
-# Takes 3 arguments:
+# Takes 1 argument:
 #   $1 - name of variable to value to return
 #
 main() {
