@@ -1,5 +1,5 @@
 pool:
- NewPool
+  vmImage: 'ubuntu-latest'
 
 variables:
 - group: azure-build-vars
@@ -13,8 +13,8 @@ steps:
 
 - bash: |
     cat $(conjurCert.secureFilePath) > $(CONJUR_CERT_FILE)
-    export DB_UNAME=$(./get_conjur_secret.sh $(app-name) $(db-username) )
-    export DB_PWD=$(./get_conjur_secret.sh $(app-name) $(db-password) )
+    export DB_UNAME=$(./get_conjur_secret.sh $(db-username) )
+    export DB_PWD=$(./get_conjur_secret.sh $(db-password) )
     echo "Secrets retrieved:"
     echo "  DB_UNAME: $DB_UNAME" 
     echo "  DB_PWD: $DB_PWD" 
