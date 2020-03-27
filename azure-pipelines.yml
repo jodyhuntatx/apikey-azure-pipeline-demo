@@ -2,7 +2,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-- group: azure-build-vars
+- group: build-vars-common
+- group: apikey-vars
 
 steps:
 - task: DownloadSecureFile@1
