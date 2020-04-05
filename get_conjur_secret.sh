@@ -10,7 +10,7 @@
 #   $1 - name of variable to value to return
 #
 main() {
-
+echo $CONJUR_AUTHN_API_KEY
   if [[ $# -ne 1 ]] ; then
     printf "\nUsage: %s <variable-name>\n" $0
     exit -1
