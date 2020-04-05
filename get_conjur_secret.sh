@@ -2,20 +2,22 @@
 #
 # Authenticates as host identity with API key and gets value of a specified variable
 #
-
 # URL, ACCOUNT, CERT_FILE, LOGIN and API_KEY are taken from build vars in library
+# API_KEY is passed as command line parameter because it is tagged as secret.
 
 ################  MAIN   ################
-# Takes 1 argument:
-#   $1 - name of variable to value to return
+# Takes 2 arguments:
+#   $1 - api key
+#   $2 - name of variable to value to return
 #
 main() {
-echo $CONJUR_AUTHN_API_KEY
-  if [[ $# -ne 1 ]] ; then
-    printf "\nUsage: %s <variable-name>\n" $0
+
+  if [[ $# -ne 2 ]] ; then
+    printf "\nUsage: %s <api-key> <variable-name>\n" $0
     exit -1
   fi
-  local variable_name=$1
+  local CONJUR_AUTHN_API_KEY=$1
+  local variable_name=$2
 				# authenticate, get ACCESS_TOKEN
   ACCESS_TOKEN=$(authn_host $CONJUR_AUTHN_LOGIN $CONJUR_AUTHN_API_KEY)
   if [[ "$ACCESS_TOKEN" == "" ]]; then
