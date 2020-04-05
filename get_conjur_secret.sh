@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 #
 # Authenticates as host identity with API key and gets value of a specified variable
 #
